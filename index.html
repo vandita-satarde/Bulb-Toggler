@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Manipulation</title>
+    <style>
+        body{
+            background-color: rgb(84, 20, 20);
+        }
+
+        .container{
+            margin: 20px auto;
+            width: 300px;
+            background-color: rgb(190, 100, 100);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        #bulb{
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .app-heading{
+            color: #fff;
+            text-align: center;
+        }
+
+        .btn{
+            border: none;
+            padding: 5px 20px;
+            border-radius: 5px;
+        }
+
+        .button-container{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn-on{
+            background-color: goldenrod;
+        }
+
+        .btn-off{
+            background-color: rgb(98, 93, 93);
+        }
+    </style>
+</head>
+<body id="body">
+    <div class="container" id="container">
+        <h1 class="app-heading" id="app-heading">Bulb Toggler</h1>
+        <img src="./light-bulb-off.png" alt="bulb" id="bulb"> 
+
+        <div class="button-container">
+            <button class="btn btn-off" onclick="toggle(false)">OFF</button>
+            <button class="btn btn-on" onclick="toggle(true)">ON</button>
+        </div>
+    </div>
+    
+
+    <script>
+        function toggle(turnOn){
+            const bulbImgElement = document.getElementById('bulb');
+            const bodyElement = document.getElementById('body');
+            const containerElement = document.getElementById('container');
+            const appHeadingElement = document.getElementById('app-heading');
+
+            bulbImgElement.src = turnOn ? 'light-bulb-on.png' : 'light-bulb-off.png';
+            bodyElement.style.backgroundColor = turnOn ? '#ffb31a' : ' rgb(84, 20, 20)';
+            containerElement.style.backgroundColor = turnOn ? '#fff' : ' rgb(190, 100, 100)';
+            appHeadingElement.style.color = turnOn ? '#000' : '#fff';
+
+        }
+    </script>
+</body>
+</html>
